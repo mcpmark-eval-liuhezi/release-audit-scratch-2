@@ -2,10 +2,15 @@ name: Release Audit
 
 on:
   workflow_dispatch:
+    inputs:
+      tag:
+        description: "Release tag being audited"
+        required: true
+        default: "v18.3.1"
 
 jobs:
   audit:
     runs-on: ubuntu-latest
     steps:
       - name: Print audited release tag
-        run: echo "Being audited: v18.3.1"
+        run: echo "Being audited: ${{ inputs.tag }}"
